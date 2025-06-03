@@ -52,79 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			imageObserver.observe(img);
 		});
 	}
-
-	// 获取访客信息
-	const fetchVisitorInfo = async () => {
-		try {
-			const response = await fetch('https://api.vvhan.com/api/visitor.info');
-			const data = await response.json();
-			if (data.success && data.info) {
-				// 创建访客信息显示元素
-				const visitorInfoDiv = document.createElement('div');
-				visitorInfoDiv.className = 'visitor-info';
-
-				// 获取问候语（根据时间）
-				const hour = new Date().getHours();
-				const greetings = {
-					morning: { text: '早上好', emoji: '🌅', hours: [5, 11] },
-					afternoon: { text: '下午好', emoji: '🌞', hours: [12, 17] },
-					evening: { text: '晚上好', emoji: '🌙', hours: [18, 23] },
-					night: { text: '夜深了', emoji: '🌠', hours: [0, 4] }
-				};
-
-				let greeting = greetings.morning;
-				for (const [_, info] of Object.entries(greetings)) {
-					if (hour >= info.hours[0] && hour <= info.hours[1]) {
-						greeting = info;
-						break;
-					}
-				}
-
-				// 健壮性处理
-				const addressStr = (data.info && typeof data.info.address === 'string') ? data.info.address : '';
-				const address = addressStr.split(' ').filter(Boolean);
-				const country = address[0] || '未知国家';
-				const region = address[1] || '';
-				const city = address[2] || '';
-				const isp = (data.info && data.info.isp) ? data.info.isp : '未知网络';
-				const ip = (data.info && data.info.ip) ? data.info.ip : '未知IP';
-
-				visitorInfoDiv.innerHTML = `
-					<div class="visitor-card">
-						<div class="visitor-header">
-							<span class="greeting-text">${greeting.emoji} ${greeting.text}！</span>
-						</div>
-						<div class="visitor-content">
-							<p class="visitor-location">
-								来自<span class="highlight">${[city, region, country].filter(Boolean).join(' · ')}</span>的朋友
-							</p>
-							<div class="visitor-details">
-								<p class="visitor-item">
-									<span title="IP地址">🌐 ${ip}</span>
-								</p>
-								<p class="visitor-item">
-									<span title="运营商">📡 ${isp}</span>
-								</p>
-							</div>
-						</div>
-					</div>
-				`;
-				
-				// 将访客信息添加到导航栏下方
-				const navigationWrapper = document.querySelector('.navigation-wrapper');
-				if (navigationWrapper) {
-					navigationWrapper.parentNode.insertBefore(visitorInfoDiv, navigationWrapper.nextSibling);
-					// 添加渐入动画效果
-					requestAnimationFrame(() => {
-						visitorInfoDiv.querySelector('.visitor-card').classList.add('up');
-					});
-				}
-			}
-		} catch (error) {
-			console.warn('获取访客信息失败:', error);
-		}
-	};
-
 	// 获取一言数据
 	const fetchHitokoto = async () => {
 		try {
@@ -204,12 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 头像加载完成后显示
 	if (elements.avatar) {
 		elements.avatar.addEventListener('load', () => elements.avatar.classList.add("show"));
-	}
-
-	// 执行初始化
+	}	// 执行初始化
 	fetchHitokoto();
 	handleBackgroundImage();
-	fetchVisitorInfo();
+
 });
 
 $('.btn-mobile-menu__icon').click(function () {
@@ -259,8 +184,7 @@ window.weixin = () => {
 
 // 添加必要的CSS样式
 const style = document.createElement('style');
-style.textContent = `
-    .wechat-popup {
+style.textContent = `    .wechat-popup {
         border-radius: 15px !important;
         padding: 20px !important;
     }
@@ -547,3 +471,4 @@ emailStyle.textContent = `
     }
 `;
 document.head.appendChild(emailStyle);
+// 这里可以添加其他功能
