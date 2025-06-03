@@ -1,0 +1,151 @@
+/* 访客信息动画 */
+.visitor-info {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+.visitor-info.up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.visitor-info p {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 通用渐入动画 */
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 平滑过渡效果 */
+.smooth-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+/* 悬浮效果 */
+.hover-lift {
+    transition: transform 0.2s ease-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+}
+
+/* 菜单按钮动画 */
+.btn-mobile-menu__icon {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-mobile-menu__icon.animated {
+    transform: rotate(180deg);
+}
+
+/* 导航菜单动画优化 */
+.navigation-wrapper {
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top;
+}
+
+.navigation-wrapper.bounceInDown {
+    animation: smoothBounceIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation-wrapper.bounceOutUp {
+    animation: smoothBounceOut 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes smoothBounceIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes smoothBounceOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* 全局动画效果 */
+.panel-main {
+    transition: transform 0.3s ease-out;
+}
+
+.panel-main:hover {
+    transform: scale(1.002);
+}
+
+/* 链接悬浮效果 */
+.navigation-wrapper a {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navigation-wrapper a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background: currentColor;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navigation-wrapper a:hover:after {
+    width: 100%;
+}
+
+/* 头像动画优化 */
+.js-avatar.show {
+    animation: avatarShow 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes avatarShow {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    70% {
+        transform: scale(1.05) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

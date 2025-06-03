@@ -1,0 +1,115 @@
+:root {
+  /* 主题颜色 */
+  --primary-color: #f85d5d;
+  --secondary-color: #ff1867;
+  --accent-color: #28a745;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  --header-bg: rgba(255, 255, 255, 0.95);
+  
+  /* 动画时间 */
+  --transition-speed: 0.3s;
+  
+  /* 间距 */
+  --spacing-unit: 1rem;
+  --container-padding: 2rem;
+  
+  /* 圆角 */
+  --border-radius: 8px;
+  
+  /* 阴影 */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --header-bg: rgba(26, 26, 26, 0.95);
+    --box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 现代化容器布局 */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+/* 现代化卡片样式 */
+.card {
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-unit);
+  transition: transform var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* 现代化按钮样式 */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 加载动画 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 响应式网格布局 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-unit);
+  padding: var(--spacing-unit);
+}
+
+/* 现代化导航栏 */
+.navigation-modern {
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+/* 图片优化 */
+.img-modern {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-speed);
+}
+
+.img-modern:hover {
+  transform: scale(1.05);
+}

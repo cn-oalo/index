@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--恭喜你扒站成功！-->
+<!--
+ * ░░░░░░░░░░░░░░░░░░░░░░░░▄░░
+ * ░░░░░░░░░▐█░░░░░░░░░░░▄▀▒▌░
+ * ░░░░░░░░▐▀▒█░░░░░░░░▄▀▒▒▒▐
+ * ░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐
+ * ░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐
+ * ░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌
+ * ░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒
+ * ░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐
+ * ░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄
+ * ░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒
+ * ▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒
+ * 修勾就这样默默地看着你~
+ -->
+
+<!--
+	…o888888o.o88888888o.
+…8888888888888888888888888o.
+…888::::888888888888888888888888o.
+…88::::::::88888888888888888888888888o.
+…o8:::::::::888::鼎88888888888888888888888.
+…8888:8::::::8:::::::::鼎88888888888888888888.
+…8888::::8888::::::::::::::::鼎88888888888 ‘’’‘88
+…8888:::888888888::::::::::::::::鼎888888888 8
+…88888888888888888:::::::::::::鼎88888888888
+…88…888888888888888888:::::::::::鼎88888888888888
+…88.888888888888888888888::::::::鼎88888888888888888
+…8…8888888888888888888888::::::鼎88888888888888888888
+…8888888888888888::88888:::::鼎8888888888888888888888
+…88888888888888888::::8888::::8888888888888888 ‘’’‘8888
+…88888888888888888::::8888::::::88888::888888888 888
+…88888888888888888::::888:::::鼎::::::888888888 88
+…888888888888888888::::88::::::鼎:::::::::::::888888888 88
+.8888888888888888888::::8::::::鼎:::::::::::::鼎888888888 88
+888…8888888888::88::::8:::::鼎:::8oo8::::::88888888888888 8
+88…88888888888:::8:::::::::鼎:::::::::::::88888888888888888
+.8…8888888888888:::::::::::鼎::"8888888":::鼎88888888888888888
+…8888888888::888::::::::::鼎:::::"8a8"::::鼎88888888888888888888
+.888888888:::::88:::::::::鼎88::::::::::::鼎88888888888888888888888
+8888888888:::::8:::::::::鼎88888::::::::鼎888888888888888888888888888
+888888888:::::8:::::::::鼎8888888ooooo鼎8888888888888888888888888888888
+888888.鼎::::::::::::::鼎8888888888::::::鼎8888888888888888 ‘’’'888888888
+8888…鼎:::::::::::::::鼎88888888888::::::鼎8888888888888888 88888888
+.888…鼎::::::::::::::鼎8888888888888:::::::鼎888888888888888 888888
+…888.鼎:::::::::::::鼎88888888888888888::::::鼎8888888888888 88888
+…88.鼎:::::::::::::8888:88888888888888888:::::鼎鼎888888888 8888
+…88.鼎:::::::::::8888鼎::88888::888888888888:::::鼎鼎88888 888
+…8…鼎::::::::::8888鼎:::8888:::::88888888888::::::鼎鼎88 888
+…8鼎:::::::8888鼎:::::888:::::::88:::8888888:::::::鼎鼎 88
+…88鼎:::::::8888鼎::::::88:::::::::8:::::888888::::::::鼎鼎 88
+…8888鼎:::::888鼎:::::::::88::::::::::鼎::::8888::::::::::::鼎 8
+…88888:鼎::::888鼎::::::::::8:::::::::::鼎::::888::::::::::::::鼎
+…88.888:鼎:::888:鼎::::::::::8::::::::::::鼎::888::::::::::::::::鼎
+…8.88888鼎:::88::鼎::::::::::::::::::::::::鼎:88::::::::::::::::::鼎
+…88888鼎:::88::鼎:::::::::::::::::::::::::鼎88:::::::::::::::::::鼎
+…88888鼎:::88::鼎:::::::::::::::::::::::::鼎:8::::::::::::::::::::鼎
+…888888鼎::::8::鼎::::::::::::::8888::::::::鼎8::::::::::::8888:::::鼎
+…88888…鼎:::8::鼎鼎:::::::::::888888:::::::鼎::::::::::::888888::::鼎
+…8888…鼎鼎:::::鼎鼎::::::::::888888:::::::鼎鼎::::::::::888888::::鼎
+…8888…鼎:::::::鼎鼎::::::::::8888:::::::鼎鼎鼎::::::::::8888::::鼎'''''
+…888…鼎鼎::::::鼎鼎鼎:::::::::::::::::鼎鼎::鼎::::::::::::::::鼎'''''
+…88…鼎::::::::鼎鼎鼎鼎:::::::::::鼎鼎鼎:::鼎鼎:::::::::::::鼎'''''
+…88…鼎鼎:::::::::鼎鼎鼎鼎鼎鼎鼎鼎:::::::鼎鼎鼎鼎
+…88…鼎鼎::::::::::::鼎鼎鼎鼎鼎鼎鼎::::::::::::鼎鼎
+…88…8鼎鼎::::::::::::::::::::::::::::::::::::::::鼎
+…8…88鼎鼎::::::::::::::::::::::鼎:::鼎::::::::::鼎
+…888鼎鼎::::::::::::::::::鼎鼎::::::鼎鼎::::::鼎
+…88888鼎鼎:::::::::::::::鼎鼎鼎:::::::鼎鼎:::::鼎
+…888888鼎鼎:::::::::::::鼎鼎鼎:::::::::鼎鼎:::鼎
+…88888888鼎鼎:::::::::::鼎鼎鼎:::::::::::鼎:::鼎
+…88.8888888.鼎::::::::鼎鼎鼎::::::::::::::鼎::鼎
+…8…888888…鼎::::::鼎鼎:::::::::::::::::鼎::鼎
+…888888…鼎:::::鼎:::::::::::::::::::鼎::鼎鼎
+…888888…鼎::::鼎::::::::::::::::::::::::鼎鼎
+…888888…鼎::::鼎::::::::::::::::::::::::鼎:鼎
+…88888…鼎::::::::::::::8::::::::::::::::鼎::鼎
+…88888…鼎:::::::::::::::88::::::::::::::::鼎::鼎
+…88888…鼎::::::::::::::::8::::::::::::::::::鼎::鼎
+…88888…鼎:::::鼎:::::::::::::::::::::鼎::::::::鼎::鼎
+…8888…鼎:::::鼎:::::::::::::::::::::::鼎鼎::::::鼎::鼎
+…8888…鼎:::::鼎:::::::::::::::::::::::鼎鼎鼎:::::::鼎:鼎
+…888…鼎:::::鼎鼎::::::::::::::::::::::鼎鼎鼎::::::::鼎:鼎
+…鼎::::::鼎鼎:::::::::::::::::::::鼎鼎鼎::::::::: 鼎:鼎
+…鼎:::::鼎:::::::::::::::::::::::鼎鼎::::::::::::::鼎:鼎
+…鼎::::::::::::::::::::::::::::::鼎::::::::::::::::::鼎:鼎
+…鼎::::::::::::::::::::::::::::::::::::::::::::::::::鼎:鼎
+…鼎::::::::鼎:::::::::::::::::::::::::::::::::::::::::鼎:鼎
+…鼎::::::::鼎:::::::::::::::::鼎::::::::::::::::::::::鼎:鼎
+…鼎::::::::::鼎::::::::::::::鼎::::::::::::::::::::::::鼎:鼎鼎
+…鼎:::::::::::鼎8::::::::8:鼎:::::::::::::::::::::::::鼎:鼎鼎p
+…鼎::::::::::::888hole888鼎:::::::::::::::::::::::::::鼎:鼎o
+…鼎:::::::::::::88888888鼎:::::::::::::::::::::::::::鼎:鼎p
+…鼎::::::::::::::888888鼎::::::::::::::::::::::::::::鼎:鼎
+…鼎:::::::::::::::88888鼎:::::::::::::::::::::::::::鼎:鼎
+…鼎:::::::::::::::::88鼎::::::::::::::::::::::::::::鼎鼎
+…鼎:::::::::::::::::::鼎:::::::::::::::::::::::::::鼎鼎
+…鼎:::::::::::::::::::鼎::::::::::::::::::::::::::鼎鼎
+…鼎:::::::::::::::::鼎::::::::::::::::::::::::::鼎
+…鼎:::::::::::::::::鼎::::::::::::::::::::::::::鼎
+…鼎:::::::::::::::鼎::::::::::::::::::::::::::鼎
+…鼎:::::::::::::::鼎:::::::::::::::::::::::::鼎
+…鼎:::::::::::::鼎:::::::::::::::::::::::::鼎
+…鼎:::::::::::::鼎:::::::::::::::::::::::鼎
+…鼎:::::::::::鼎:::::::::::::::::::::::鼎
+…鼎:::::::::::鼎::::::::::::::::::::::鼎
+…鼎:::::::::鼎::::::::::::::::::::::鼎
+…鼎:::::::::鼎:::::::::::::::::::::鼎
+…鼎:::::::鼎:::::::::::::::::::::鼎
+…鼎::::::鼎::::::::::::::::::::鼎
+…鼎:::::鼎::::::::::::::::::::鼎
+…鼎:::鼎::::::::::::::::::::鼎
+…鼎::鼎::::::::::::::::::::鼎
+…鼎:鼎:::::::::::::::::::鼎
+…鼎鼎:::::::::::::::::::鼎
+…鼎鼎::::::::::::::::::鼎
+…鼎鼎:::::::::::::::::鼎
+…鼎鼎:::::鼎::::::::鼎鼎
+…鼎鼎::::鼎鼎:::::::鼎鼎
+…鼎鼎::::::鼎鼎:::::鼎鼎
+…鼎鼎::::::::::::::鼎鼎
+…鼎鼎::::鼎:::::::::鼎鼎
+…鼎鼎::鼎鼎鼎:::::::鼎鼎
+…鼎鼎::鼎鼎鼎:::::::鼎鼎
+…鼎鼎:::鼎鼎::::::::::鼎
+…鼎鼎::鼎鼎::::::::::鼎
+…鼎鼎::鼎鼎:::::::::::鼎
+…鼎鼎:::鼎::::::::::::鼎
+…鼎鼎:::::::::::::::::鼎
+…鼎鼎:::::::::::::::::鼎
+…鼎鼎::::::::::::::::::鼎
+…鼎鼎::::::::::::::::::鼎
+…鼎鼎::::::::::::::::::鼎
+…鼎鼎:::::::::::::::::鼎
+…鼎鼎:::::::::::::::::鼎
+…鼎鼎:::::::::::::::::鼎
+…鼎鼎:::::::::::::::鼎
+…鼎鼎:::::::::::::::鼎
+…鼎鼎:::::::::::::::鼎
+…鼎鼎::::::::::::::鼎
+…鼎鼎:::::::::::::鼎
+…鼎鼎:::::::::::::鼎
+…鼎鼎:::::::::::::鼎
+…鼎鼎::::::::::::鼎
+…鼎鼎::::::::::::鼎
+…鼎鼎:::::::::::鼎
+…鼎鼎::::::::::鼎
+…鼎鼎::::::::::鼎
+…鼎鼎::::::::鼎
+…鼎鼎::::::::鼎
+…鼎鼎::::::::鼎
+…鼎鼎:::::::鼎
+…鼎鼎:::::::鼎
+…鼎鼎::::::鼎
+…鼎鼎::::::鼎
+…鼎鼎::::::鼎
+…鼎鼎::::::鼎
+…鼎鼎::::::鼎
+…鼎鼎:::::::鼎
+…鼎:鼎::::::::鼎
+…鼎:鼎:::::::::鼎
+…鼎:鼎::::::::::鼎
+…鼎:鼎:::::::::::鼎
+…鼎:鼎::::::::::::鼎
+…鼎:鼎:::::::::::::鼎
+…鼎:鼎::::::::::::::鼎
+…鼎鼎:::::::::::::::::鼎
+…鼎鼎::::::::::::::::鼎
+…鼎鼎鼎:::::::::鼎鼎
+…鼎鼎::鼎::::鼎鼎
+…鼎鼎鼎鼎鼎鼎鼎
+…鼎鼎鼎鼎鼎
+-->
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- DNS预解析 -->
+    <link rel="dns-prefetch" href="https://cdn.oalo.cn">
+    <link rel="dns-prefetch" href="https://api.vvhan.com">
+    
+    <!-- 预连接关键域名 -->
+    <link rel="preconnect" href="https://cdn.oalo.cn" crossorigin>
+    <link rel="preconnect" href="https://api.vvhan.com" crossorigin>
+
+    <!-- 基础信息 -->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="force-rendering" content="webkit">
+    <meta name="description" content="星辰の主页">
+    <meta name="keywords" content="晚风＆星辰,个人主页">
+    <meta name="author" content="cn-oalo">
+    <title>晚风＆星辰の</title>
+
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="CSS/index.css" as="style">
+    <link rel="preload" href="CSS/style.css" as="style">
+    <link rel="preload" href="js/clock.js" as="script">
+
+    <!-- 关键CSS -->
+    <link rel="stylesheet" type="text/css" href="CSS/index.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+
+    <!-- 图标和favicon -->
+    <link rel="apple-touch-icon" href="https://cdn.oalo.cn/images/favicon.ico">
+    <link rel="icon" href="https://cdn.oalo.cn/images/favicon.ico">
+    
+    <!-- 优化的CSS加载:使用media="print"预加载非关键CSS -->
+    <link rel="stylesheet" href="CSS/iconfont.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="CSS/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="CSS/sey.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="CSS/iziToast.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="CSS/iconfont.css">
+        <link rel="stylesheet" href="CSS/all.min.css">
+        <link rel="stylesheet" href="CSS/sey.css">
+        <link rel="stylesheet" href="CSS/iziToast.min.css">
+    </noscript>
+
+    <!-- 添加 Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- 添加访客信息样式 -->
+    <link rel="stylesheet" href="CSS/visitor-info.css">
+
+    <!-- 优化的JS加载 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof Swal !== 'undefined') {
+                console.log('Sweetalert2 loaded successfully');
+            }
+        });
+    </script>
+    <script src="js/bj.js" defer></script>
+    <!-- <script src="js/protect.js" defer></script> -->
+</head>
+
+<body oncontextmenu="self.event.returnValue=false" onselectstart="return false" class="">
+    <!-- 背景图 -->
+    <header id="panel" class="panel-cover"
+        style="background: url(images/photo.jpg) center center / cover no-repeat rgb(102, 102, 102);">
+        <!--星空背景-->
+        <canvas id="starfield"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></canvas>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <!--天气-->
+
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content">
+                    <div class="ih-item circle effect right_to_left">
+                        <a class="blog-button">
+                            <div class="img">
+                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                    data-src="https://q1.qlogo.cn/g?b=qq&nk=674401983&s=100" alt="头像"
+                                    class="js-avatar iUp profilepic header-logo up show" loading="lazy">
+                            </div>
+                            <div class="info iUp up">
+                                <div class="info-back">
+                                    <img alt="动态图" data-src="images/kl.gif" class="js-avatar profilepic show"
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- <h1 class="panel-cover__title panel-title iUp up">
+                        <br>R Aries
+                    </h1> -->
+                    <!-- <p class="panel-cover__subtitle panel-subtitle iUp up">欲卖桂花同载酒，终不似，少年游！</p> -->
+                    <canvas class="navigation-wrapper iUp up" id="canvas" style="width:50%;padding-top:0" width="820" height="250"></canvas>
+                    <script src="js/clock.js"></script>
+                    <hr class="iUp up">
+                    <!--一言无法显示时的文字-->
+                    <p id="description" class="panel-cover__description iUp up">因为你在，我不是太阳，而是化作星辰，与你遨游星空。<br>
+                        -「<strong>原创</strong>」</p>
+                    <div class="navigation-wrapper iUp up">
+                        <div>
+                            <nav class="cover-navigation cover-navigation--primary">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="https://blog.oalo.cn" target="_blank"
+                                            style="--clr:#f85d5d"><span>博客</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="resume.html" target="_blank"
+                                            style="--clr:#ff1867"><span>个人简历</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href=" https://v.douyin.com/hU1qpMX/" target="_blank"
+                                            style="--clr:#ebe417"><span>抖音</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://blog.oalo.cn/friends.html" target="_blank"
+                                            style="--clr:#eb2feb"><span>朋友圈</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://cloud.oalo.cn" target="_blank"
+                                            style="--clr:#28a745"><span>待开发...</span><i></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="iUp up">
+                            <nav class="cover-navigation navigation--social">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="https://github.com/" title="Github" target="_blank">
+                                            <j class="iconfont icon-github"></j>
+                                            <span class="label">Github</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=674401983&amp;site=qq&amp;menu=yes"
+                                            title="QQ" target="_blank">
+                                            <j class="fab fa-qq"></j>
+                                            <span class="label">QQ</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a onclick="weixin()" title="微信" target="_blank">
+                                            <j class="fab fa-weixin"></j>
+                                            <script>
+                                                function weixin() {
+                                                    Swal.fire({
+                                                        title: "请扫码",
+                                                        text: "请使用微信扫一扫",
+                                                        confirmButtonText: "好的",
+                                                        imageUrl: "./images/weixin.png",
+                                                        imageWidth: 150,
+                                                        imageHeight: 150
+                                                    })
+                                                }
+                                            </script>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="mailto:admin@oalo.cn" title="Email">
+                                            <j class="fas fa-envelope"></j>
+                                            <span class="label">Email</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay cover-slate"></div>
+        </div>
+    </header>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/fetch.min.js"></script>
+    <script src="js/main.js" defer></script>
+    <script>
+        // 优化的图片懒加载
+        document.addEventListener("DOMContentLoaded", function () {
+            if ("loading" in HTMLImageElement.prototype) {
+                // 如果浏览器支持原生懒加载
+                const images = document.querySelectorAll("img[data-src]");
+                images.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.removeAttribute("data-src");
+                });
+            } else if ("IntersectionObserver" in window) {
+                // 使用 IntersectionObserver 实现懒加载
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.removeAttribute("data-src");
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: "50px 0px" // 提前50px加载
+                });
+
+                document.querySelectorAll("img[data-src]").forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        });
+    </script>
+
+    <!-- 统计脚本异步加载 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?90f129cde02bd8b83f21e20ff219db9a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+
+</html>
