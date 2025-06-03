@@ -21,11 +21,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- DNS预解析 -->
     <link rel="dns-prefetch" href="https://cdn.oalo.cn">
-    <link rel="dns-prefetch" href="https://api.vvhan.com">
     
     <!-- 预连接关键域名 -->
     <link rel="preconnect" href="https://cdn.oalo.cn" crossorigin>
-    <link rel="preconnect" href="https://api.vvhan.com" crossorigin>
 
     <!-- 基础信息 -->
     <meta name="renderer" content="webkit">
@@ -51,18 +49,16 @@
     
     <!-- 优化的CSS加载:使用media="print"预加载非关键CSS -->
     <link rel="stylesheet" href="CSS/iconfont.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="CSS/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="CSS/sey.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="CSS/iziToast.min.css" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="CSS/iconfont.css">
-        <link rel="stylesheet" href="CSS/all.min.css">
         <link rel="stylesheet" href="CSS/sey.css">
         <link rel="stylesheet" href="CSS/iziToast.min.css">
-    </noscript>
-
-    <!-- 添加 Font Awesome CDN -->
+    </noscript>    <!-- 添加 Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- 添加 Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- 添加访客信息样式 -->
     <link rel="stylesheet" href="CSS/visitor-info.css">
 
@@ -109,9 +105,9 @@
                             </div>
                         </a>
                     </div>
-                    <!-- <h1 class="panel-cover__title panel-title iUp up">
+                    <h1 class="panel-cover__title panel-title iUp up">
                         <br>R Aries
-                    </h1> -->
+                    </h1>
                     <!-- <p class="panel-cover__subtitle panel-subtitle iUp up">欲卖桂花同载酒，终不似，少年游！</p> -->
                     <canvas class="navigation-wrapper iUp up" id="canvas" style="width:50%;padding-top:0" width="820" height="250"></canvas>
                     <script src="js/clock.js"></script>
@@ -154,33 +150,17 @@
                                             <j class="iconfont icon-github"></j>
                                             <span class="label">Github</span>
                                         </a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=674401983&amp;site=qq&amp;menu=yes"
-                                            title="QQ" target="_blank">
+                                    </li>                                    <li class="navigation__item">
+                                        <a onclick="openQQ()" title="QQ">
                                             <j class="fab fa-qq"></j>
                                             <span class="label">QQ</span>
                                         </a>
                                     </li>
                                     <li class="navigation__item">
-                                        <a onclick="weixin()" title="微信" target="_blank">
-                                            <j class="fab fa-weixin"></j>
-                                            <script>
-                                                function weixin() {
-                                                    Swal.fire({
-                                                        title: "请扫码",
-                                                        text: "请使用微信扫一扫",
-                                                        confirmButtonText: "好的",
-                                                        imageUrl: "./images/weixin.png",
-                                                        imageWidth: 150,
-                                                        imageHeight: 150
-                                                    })
-                                                }
-                                            </script>
+                                        <a onclick="weixin()" title="微信" target="_blank">                                            <j class="fab fa-weixin"></j>
                                         </a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="mailto:admin@oalo.cn" title="Email">
+                                    </li>                                    <li class="navigation__item">
+                                        <a onclick="openEmail()" title="Email">
                                             <j class="fas fa-envelope"></j>
                                             <span class="label">Email</span>
                                         </a>
@@ -197,37 +177,6 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/fetch.min.js"></script>
     <script src="js/main.js" defer></script>
-    <script>
-        // 优化的图片懒加载
-        document.addEventListener("DOMContentLoaded", function () {
-            if ("loading" in HTMLImageElement.prototype) {
-                // 如果浏览器支持原生懒加载
-                const images = document.querySelectorAll("img[data-src]");
-                images.forEach(img => {
-                    img.src = img.dataset.src;
-                    img.removeAttribute("data-src");
-                });
-            } else if ("IntersectionObserver" in window) {
-                // 使用 IntersectionObserver 实现懒加载
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.dataset.src;
-                            img.removeAttribute("data-src");
-                            imageObserver.unobserve(img);
-                        }
-                    });
-                }, {
-                    rootMargin: "50px 0px" // 提前50px加载
-                });
-
-                document.querySelectorAll("img[data-src]").forEach(img => {
-                    imageObserver.observe(img);
-                });
-            }
-        });
-    </script>
 
     <!-- 统计脚本异步加载 -->
     <script>
