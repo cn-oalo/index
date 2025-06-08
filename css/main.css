@@ -125,3 +125,74 @@ a:hover {
         font-size: 12px;
     }
 }
+
+/* 移动端全局优化 */
+@media (max-width: 600px) {
+  html, body {
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+    padding: 0;
+    margin: 0;
+  }
+  .panel-main,
+  .panel-main__inner,
+  .panel-main__content,
+  .navigation-wrapper,
+  .visitor-info,
+  .profile-image,
+  .panel-title,
+  .panel-description {
+    max-width: 100vw !important;
+    box-sizing: border-box;
+    overflow-x: hidden !important;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .navigation {
+    flex-wrap: wrap;
+    word-break: break-all;
+  }
+  canvas#canvas {
+    max-width: 98vw !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+  .visitor-info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
+    min-width: 0;
+  }
+  .profile-image {
+    margin: 0 auto 10px auto;
+    width: 90px;
+    height: 90px;
+  }
+  .panel-title {
+    font-size: 1.3em !important;
+    word-break: break-all;
+  }
+  .panel-description {
+    font-size: 1em !important;
+    word-break: break-all;
+  }
+}
+
+/* 防止横向滚动条 */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
+/* 主要容器防止溢出 */
+.panel-main,
+.panel-main__inner,
+.panel-main__content {
+  box-sizing: border-box;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
