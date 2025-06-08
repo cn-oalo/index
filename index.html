@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="星辰の主页 - 个人网站">
+    <meta name="keywords" content="晚风＆星辰,个人主页">
+    <meta name="author" content="cn-oalo">
+    <title>晚风＆星辰の</title>
+
+    <!-- 资源预加载 -->
+    <link rel="dns-prefetch" href="https://cdn.oalo.cn">
+    <link rel="preconnect" href="https://cdn.oalo.cn" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- favicon -->
+    <link rel="icon" href="https://cdn.oalo.cn/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://cdn.oalo.cn/images/favicon.ico">
+    <!-- 核心样式 -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/social-popups.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/visitor-info.css">
+    <!-- 外部库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" defer></script>
+    <!-- 优化的JS加载 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof Swal !== 'undefined') {
+                console.log('Sweetalert2 loaded successfully');
+            }
+        });
+    </script>
+    <!-- 主应用脚本 -->
+    <script src="js/app.js" type="module"></script>
+    <!-- <script src="js/modules/protect.js" defer></script> -->
+</head>
+
+<body>
+
+    <!-- 背景 -->
+    <header id="panel" class="panel-cover">
+        <!-- 星空背景 -->
+        <canvas id="starfield"></canvas>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+
+        <!-- 主内容区 -->
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content">
+                    <!-- 头像 -->
+                    <div class="profile-image">
+                        <a class="blog-button">
+                            <div class="img">
+                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                    data-src="https://q1.qlogo.cn/g?b=qq&nk=674401983&s=100" alt="头像" class="avatar"
+                                    loading="lazy">
+                            </div>
+                            <div class="info">
+                                <div class="info-back">
+                                    <img alt="动态图" data-src="images/kl.gif" class="avatar-gif" loading="lazy">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 标题 -->
+                    <h1 class="panel-title">
+                        R Aries
+                    </h1>
+                    <!-- 时钟 -->
+                    <hr>
+                    <canvas id="canvas"></canvas>
+                    <!-- 描述 -->
+                    <p id="description" class="panel-description">因为你在，我不是太阳，而是化作星辰，与你遨游星空。<br>
+                        -「<strong>原创</strong>」</p>
+                    <!-- 访客信息模块 -->
+                    <div class="visitor-info">
+                        <div class="visitor-info-content">
+                            <div class="visitor-info-greeting"></div>
+                            <div class="visitor-info-location">
+                                <div class="visitor-info-item ip-info">
+                                    <span class="visitor-info-icon">🌐</span>
+                                    <span class="visitor-info-text">正在获取IP信息...</span>
+                                </div>
+                                <div class="visitor-info-item location-info">
+                                    <span class="visitor-info-icon">📍</span>
+                                    <span class="visitor-info-text">正在获取位置信息...</span>
+                                </div>
+                                <div class="visitor-info-item isp-info">
+                                    <span class="visitor-info-icon">🏢</span>
+                                    <span class="visitor-info-text">正在获取ISP信息...</span>
+                                </div>
+                                <div class="visitor-info-item system-info">
+                                    <span class="visitor-info-icon">🖥️</span>
+                                    <span class="visitor-info-text">正在获取系统信息...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 导航 -->
+                    <div class="navigation-wrapper">
+                        <div>
+                            <nav class="cover-navigation cover-navigation--primary">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="https://blog.oalo.cn" target="_blank"
+                                            style="--clr:#f85d5d"><span>博客</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="resume.html" target="_blank"
+                                            style="--clr:#ff1867"><span>个人简历</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://v.douyin.com/hU1qpMX/" target="_blank"
+                                            style="--clr:#ebe417"><span>抖音</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://blog.oalo.cn/friends.html" target="_blank"
+                                            style="--clr:#eb2feb"><span>朋友圈</span><i></i></a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://cloud.oalo.cn" target="_blank"
+                                            style="--clr:#28a745"><span>待开发...</span><i></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <!-- 社交链接 -->
+                        <div class="social-links">
+                            <nav class="cover-navigation navigation--social">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="https://github.com/" title="Github" target="_blank">
+                                            <j class="iconfont icon-github"></j>
+                                            <span class="label">Github</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="javascript:void(0)" onclick="openQQ()" title="QQ">
+                                            <j class="fab fa-qq"></j>
+                                            <span class="label">QQ</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="javascript:void(0)" onclick="weixin()" title="微信">
+                                            <j class="fab fa-weixin"></j>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="javascript:void(0)" onclick="openEmail()" title="Email">
+                                            <j class="fas fa-envelope"></j>
+                                            <span class="label">Email</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+
+    <!-- 统计脚本 -->
+    <script>
+        window.addEventListener('load', () => {
+            var _hmt = _hmt || [];
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?90f129cde02bd8b83f21e20ff219db9a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        });
+    </script>
+</body>
+
+</html>
