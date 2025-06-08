@@ -1,0 +1,276 @@
+/* 模块布局样式 - 按照原始网页的布局结构规整并适配移动端 */
+
+/* 基础布局 */
+.panel-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    z-index: 2;
+}
+
+.panel-main__inner {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-main__content {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 头像模块 */
+.profile-image {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0px 2px 20px 3px rgba(0, 0, 0, 0.25);
+}
+
+.profile-image .img,
+.profile-image .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.profile-image .img {
+    z-index: 2;
+    transform-origin: 0% 50%;
+}
+
+.profile-image .info {
+    transform: rotateY(90deg);
+    transform-origin: 100% 50%;
+    background: #333;
+}
+
+.profile-image:hover .img {
+    transform: rotateY(-90deg);
+}
+
+.profile-image:hover .info {
+    transform: rotateY(0);
+}
+
+.avatar,
+.avatar-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 标题模块 */
+.panel-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    margin: 15px 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #0ff0fc 30%, #00ff87 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-glow 2s ease-in-out infinite;
+}
+
+/* 时钟模块 */
+#canvas {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+/* 分隔线 */
+hr {
+    width: 80%;
+    margin: 20px auto;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* 描述模块 */
+.panel-description {
+    font-size: 1.1em;
+    color: #fff;
+    margin: 20px 0;
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* 导航模块 */
+.navigation-wrapper {
+    margin: 30px 0;
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+/* 社交链接模块 */
+.social-links {
+    margin-top: 25px;
+}
+
+/* 背景覆盖层 */
+.panel-cover--overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes text-glow {
+    0% {
+        text-shadow: 0 0 10px #0ff0fc;
+    }
+
+    50% {
+        text-shadow: 0 0 20px #0ff0fc, 0 0 30px #0ff0fc;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #0ff0fc;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .panel-main__inner {
+        padding: 20px;
+        margin: 15px;
+        max-width: calc(100% - 30px);
+        border-radius: 12px;
+    }
+
+    .panel-title {
+        font-size: 2rem;
+    }
+
+    .panel-description {
+        font-size: 1rem;
+    }    #canvas {
+        max-width: 100%;
+        height: auto;
+        max-height: 180px;
+        transform: scale(0.85);
+        margin: 5px auto;
+    }
+
+    hr {
+        width: 90%;
+        margin: 12px auto;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .panel-main__inner {
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    .panel-title {
+        font-size: 1.8rem;
+        margin: 10px 0;
+    }
+
+    .profile-image {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 15px;
+    }
+
+    .navigation-wrapper {
+        margin: 15px 0;
+    }
+
+    .panel-description {
+        font-size: 0.9rem;
+        margin: 15px 0;
+    }
+
+    hr {
+        margin: 12px auto;
+    }
+
+    #canvas {
+        max-height: 180px;
+        margin: 10px auto;
+    }
+}
+
+/* 移动端竖屏优化 */
+@media (max-width: 380px) and (orientation: portrait) {
+    .panel-main__inner {
+        padding: 12px;
+    }
+
+    .panel-title {
+        font-size: 1.5rem;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    #canvas {
+        max-width: 260px;
+        transform: scale(0.75);
+        margin: 5px auto;
+    }
+
+    .panel-description {
+        font-size: 0.85rem;
+    }
+}

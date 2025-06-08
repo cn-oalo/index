@@ -1,0 +1,106 @@
+/* ===== 访客信息样式 ===== */
+/* 访客信息容器 */
+.visitor-info {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 12px;
+    margin: 8px auto;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 
+        0 3px 12px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.visitor-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* 内容区域 */
+.visitor-info-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* 问候语样式 */
+.visitor-info-greeting {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 信息项样式 */
+.visitor-info-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    transition: all 0.2s ease;
+}
+
+.visitor-info-item:not(:last-child) {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.visitor-info-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+/* 图标样式 */
+.visitor-info-icon {
+    margin-right: 8px;
+    font-size: 14px;
+    opacity: 0.9;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* 文本样式 */
+.visitor-info-text {
+    flex: 1;
+}
+
+/* 信息组样式 */
+.visitor-info-location {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    padding: 3px 6px;
+    margin: 6px 0;
+}
+
+/* 加载状态样式 */
+.visitor-info-text:empty::after {
+    content: "正在加载...";
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* 玻璃效果装饰 */
+.visitor-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+}
+
+

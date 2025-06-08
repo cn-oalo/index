@@ -1,0 +1,14 @@
+{
+    "name": "personal-homepage",
+    "version": "1.0.0",
+    "description": "现代化个人主页",
+    "author": "cn-oalo",
+    "license": "MIT",
+    "scripts": {
+        "start": "serve -s .",
+        "build": "echo '静态网站无需构建'"
+    },
+    "devDependencies": {
+        "serve": "^14.2.1"
+    }
+}
