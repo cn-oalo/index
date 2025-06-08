@@ -1,98 +1,113 @@
-.visitor-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 16px;
-    margin: 10px auto;
-    max-width: 380px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* 访客信息样式 */
+.visitor-info {
+    margin: 20px auto;
+    max-width: 400px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-in-out;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
-.visitor-card.up {
-    transform: translateY(0);
+/* 添加发光效果 */
+.visitor-info::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(66, 165, 245, 0.2), rgba(66, 165, 245, 0), rgba(66, 165, 245, 0.2));
+    border-radius: 17px;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.visitor-info:hover::after {
     opacity: 1;
 }
 
-.visitor-header {
-    margin-bottom: 14px;
-    text-align: center;
-    padding: 6px 0;
-    position: relative;
+.visitor-info:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.visitor-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(126, 231, 135, 0.8), transparent);
-}
-
-.greeting-text {
-    font-size: 18px;
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    letter-spacing: 0.5px;
-}
-
-.visitor-location {
-    color: #fff;
-    font-size: 14px;
-    margin: 10px 0;
-    line-height: 1.6;
-}
-
-.visitor-location .highlight {
-    color: #7ee787;
-    font-weight: 600;
-    padding: 0 4px;
-    position: relative;
-}
-
-.visitor-location .highlight::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: rgba(126, 231, 135, 0.3);
-    border-radius: 2px;
-}
-
-.visitor-details {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 13px;
-    margin-top: 10px;
-    text-align: center;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-}
-
-.visitor-item {
-    margin: 6px 0;
+.visitor-info-content {
     display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.visitor-info-greeting {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #f0f0f0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.visitor-info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #e0e0e0;
+    padding: 5px 0;
+    transition: all 0.2s ease;
+}
+
+.visitor-info-item:hover {
+    transform: scale(1.03);
+    color: #ffffff;
+}
+
+.visitor-info-icon {
+    margin-right: 8px;
+    font-size: 16px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-.visitor-item span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .visitor-info {
+        padding: 12px;
+        max-width: 320px;
+    }
+
+    .visitor-info-greeting {
+        font-size: 16px;
+        padding-bottom: 6px;
+    }
+
+    .visitor-info-item {
+        font-size: 13px;
+    }
 }
 
-.visitor-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

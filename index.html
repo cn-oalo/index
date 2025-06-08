@@ -15,13 +15,14 @@
  * ▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒
  * 修勾就这样默默地看着你~
  -->
+
 <head>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- DNS预解析 -->
     <link rel="dns-prefetch" href="https://cdn.oalo.cn">
-    
+
     <!-- 预连接关键域名 -->
     <link rel="preconnect" href="https://cdn.oalo.cn" crossorigin>
 
@@ -46,7 +47,7 @@
     <!-- 图标和favicon -->
     <link rel="apple-touch-icon" href="https://cdn.oalo.cn/images/favicon.ico">
     <link rel="icon" href="https://cdn.oalo.cn/images/favicon.ico">
-    
+
     <!-- 优化的CSS加载:使用media="print"预加载非关键CSS -->
     <link rel="stylesheet" href="CSS/iconfont.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="CSS/sey.css" media="print" onload="this.media='all'">
@@ -55,12 +56,14 @@
         <link rel="stylesheet" href="CSS/iconfont.css">
         <link rel="stylesheet" href="CSS/sey.css">
         <link rel="stylesheet" href="CSS/iziToast.min.css">
-    </noscript>    <!-- 添加 Font Awesome CDN -->
+    </noscript> <!-- 添加 Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- 添加 Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- 添加访客信息样式 -->
     <link rel="stylesheet" href="CSS/visitor-info.css">
+    <!-- 添加社交弹窗样式 -->
+    <link rel="stylesheet" href="CSS/social-popups.css">
 
     <!-- 优化的JS加载 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
@@ -108,8 +111,8 @@
                     <h1 class="panel-cover__title panel-title iUp up">
                         <br>R Aries
                     </h1>
-                    <!-- <p class="panel-cover__subtitle panel-subtitle iUp up">欲卖桂花同载酒，终不似，少年游！</p> -->
-                    <canvas class="navigation-wrapper iUp up" id="canvas" style="width:50%;padding-top:0" width="820" height="250"></canvas>
+                    <canvas class="navigation-wrapper iUp up" id="canvas" style="width:50%;padding-top:0" width="820"
+                        height="250"></canvas>
                     <script src="js/clock.js"></script>
                     <hr class="iUp up">
                     <!--一言无法显示时的文字-->
@@ -150,16 +153,19 @@
                                             <j class="iconfont icon-github"></j>
                                             <span class="label">Github</span>
                                         </a>
-                                    </li>                                    <li class="navigation__item">
+                                    </li>
+                                    <li class="navigation__item">
                                         <a onclick="openQQ()" title="QQ">
                                             <j class="fab fa-qq"></j>
                                             <span class="label">QQ</span>
                                         </a>
                                     </li>
                                     <li class="navigation__item">
-                                        <a onclick="weixin()" title="微信" target="_blank">                                            <j class="fab fa-weixin"></j>
+                                        <a onclick="weixin()" title="微信" target="_blank">
+                                            <j class="fab fa-weixin"></j>
                                         </a>
-                                    </li>                                    <li class="navigation__item">
+                                    </li>
+                                    <li class="navigation__item">
                                         <a onclick="openEmail()" title="Email">
                                             <j class="fas fa-envelope"></j>
                                             <span class="label">Email</span>
@@ -177,6 +183,13 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/fetch.min.js"></script>
     <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/hitokoto.js" defer></script>
+    <script src="js/background.js" defer></script>
+    <script src="js/visitor-info.js" defer></script>
+    <script src="js/social.js" defer></script>
+
+
 
     <!-- 统计脚本异步加载 -->
     <script>
