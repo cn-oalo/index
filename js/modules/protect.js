@@ -1,39 +1,24 @@
-// 页面保护模块
-// 禁用右键菜单
-document.oncontextmenu = function (e) {
-    e.preventDefault();
-    Swal.fire({
-        title: '提示',
-        text: '右键菜单已被禁用',
-        icon: 'warning',
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 1500
-    });
-    return false;
+/**
+ * 页面保护模块
+ * 提供多种安全保护措施，防止页面被恶意操作
+ */
+
+// 初始化保护功能导出函数
+export function initProtect() {
+    disableDevTools();
+    disableClipboardOperations();
+    protectSourceCode();
+    setupKeyboardProtection();
+    disableRightClick();
 }
 
-// 禁用F12、Ctrl+Shift+I、Ctrl+Shift+J、Ctrl+U、Ctrl+S
-document.onkeydown = function (e) {
-    let message = '';
-    if (e.keyCode === 123) { // F12
-        message = 'F12开发者工具已被禁用';
-    } else if (e.ctrlKey && e.shiftKey && e.keyCode === 73) { // Ctrl+Shift+I
-        message = '开发者工具已被禁用';
-    } else if (e.ctrlKey && e.shiftKey && e.keyCode === 74) { // Ctrl+Shift+J
-        message = '控制台已被禁用';
-    } else if (e.ctrlKey && e.keyCode === 85) { // Ctrl+U
-        message = '查看源代码功能已被禁用';
-    } else if (e.ctrlKey && e.keyCode === 83) { // Ctrl+S
-        message = '保存功能已被禁用';
-    }
-
-    if (message) {
+// 禁用右键菜单
+function disableRightClick() {
+    document.oncontextmenu = function (e) {
         e.preventDefault();
         Swal.fire({
             title: '提示',
-            text: message,
+            text: '右键菜单已被禁用',
             icon: 'warning',
             toast: true,
             position: 'top-end',
@@ -41,6 +26,38 @@ document.onkeydown = function (e) {
             timer: 1500
         });
         return false;
+    }
+}
+
+// 禁用F12、Ctrl+Shift+I、Ctrl+Shift+J、Ctrl+U、Ctrl+S
+function setupKeyboardProtection() {
+    document.onkeydown = function (e) {
+        let message = '';
+        if (e.keyCode === 123) { // F12
+            message = 'F12开发者工具已被禁用';
+        } else if (e.ctrlKey && e.shiftKey && e.keyCode === 73) { // Ctrl+Shift+I
+            message = '开发者工具已被禁用';
+        } else if (e.ctrlKey && e.shiftKey && e.keyCode === 74) { // Ctrl+Shift+J
+            message = '控制台已被禁用';
+        } else if (e.ctrlKey && e.keyCode === 85) { // Ctrl+U
+            message = '查看源代码功能已被禁用';
+        } else if (e.ctrlKey && e.keyCode === 83) { // Ctrl+S
+            message = '保存功能已被禁用';
+        }
+
+        if (message) {
+            e.preventDefault();
+            Swal.fire({
+                title: '提示',
+                text: message,
+                icon: 'warning',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return false;
+        }
     }
 }
 
@@ -124,7 +141,7 @@ function disableClipboardOperations() {
     };
 
     Object.entries(clipboardEvents).forEach(([event, message]) => {
-        document[`on${event}`] = function(e) {
+        document[`on${event}`] = function (e) {
             e.preventDefault();
             Swal.fire({
                 title: '提示',
@@ -155,10 +172,3 @@ function protectSourceCode() {
         }
     }, 1000);
 }
-
-// 初始化所有保护
-document.addEventListener('DOMContentLoaded', function () {
-    disableDevTools();
-    disableClipboardOperations();
-    protectSourceCode();
-});

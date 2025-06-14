@@ -11,6 +11,7 @@ import { initVisitorInfo } from './modules/visitor-info.js';
 import { initAnimations } from './modules/animations.js';
 import { initLazyLoading } from './modules/lazy-loading.js';
 import { initSocial } from './modules/social.js';
+import { initProtect } from './modules/protect.js'; // 导入保护模块初始化函数
 
 // 当DOM加载完成后初始化应用
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     initLazyLoading();
     initSocial();
+    initProtect(); // 初始化保护模块
 
     // 初始化加载指示器
     initLoadingIndicator();
