@@ -3,48 +3,209 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="星辰の主页 - 个人网站">
     <meta name="keywords" content="晚风＆星辰,个人主页">
     <meta name="author" content="cn-oalo">
+    <meta name="theme-color" content="#181c27">
     <title>晚风＆星辰の</title>
 
-    <!-- 资源预加载 -->
+    <!-- 资源提示和预加载 -->
     <link rel="dns-prefetch" href="https://cdn.oalo.cn">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdn.oalo.cn" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <!-- favicon -->
     <link rel="icon" href="https://cdn.oalo.cn/images/favicon.ico">
     <link rel="apple-touch-icon" href="https://cdn.oalo.cn/images/favicon.ico">
-    <!-- 核心样式 -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/social-popups.css">
-    <link rel="stylesheet" href="css/iconfont.css">
-    <link rel="stylesheet" href="css/visitor-info.css">
-    <!-- 外部库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" defer></script>
-    <!-- 优化的JS加载 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            if (typeof Swal !== 'undefined') {
-                console.log('Sweetalert2 loaded successfully');
+
+    <!-- 内联关键CSS -->
+    <style>
+        /* 关键渲染路径CSS */
+        :root {
+            --primary-color: #42A5F5;
+            --secondary-color: #2196F3;
+            --text-color: #f0f0f0;
+            --text-secondary: #e0e0e0;
+            --background-overlay: rgba(68, 68, 68, 0.6);
+            --animation-speed: 0.3s
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            max-width: 100vw;
+            min-width: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: #181c27;
+            scroll-behavior: smooth
+        }
+
+        body {
+            width: 100vw;
+            min-width: 0;
+            max-width: 100vw;
+            overflow-x: hidden
+        }
+
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #181c27;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
             }
-        });
+        }
+
+        .panel-cover {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #181c27;
+            overflow: hidden;
+            will-change: transform
+        }
+
+        .panel-main {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            z-index: 2
+        }
+
+        .panel-main__inner {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1)
+        }
+
+        .panel-main__content {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out
+        }
+    </style>
+
+    <!-- 核心样式 - 关键CSS优先加载 -->
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/layout.css" media="print" onload="this.media='all'">
+
+    <!-- 延迟加载非关键CSS -->
+    <link rel="preload" href="css/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/navigation.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/social-popups.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/iconfont.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/visitor-info.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/navigation.css">
+        <link rel="stylesheet" href="css/social-popups.css">
+        <link rel="stylesheet" href="css/iconfont.css">
+        <link rel="stylesheet" href="css/visitor-info.css">
+    </noscript>
+
+    <!-- 预加载关键图片资源 -->
+    <link rel="preload" as="image" href="images/kl.gif" fetchpriority="low">
+
+    <!-- 外部库 - 使用CDN并添加完整性校验 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+
+    <!-- 预加载脚本 -->
+    <link rel="modulepreload" href="js/app.js">
+    <link rel="modulepreload" href="js/modules/background.js">
+    <link rel="modulepreload" href="js/modules/clock.js">
+    <link rel="modulepreload" href="js/modules/lazy-loading.js">
+
+    <!-- 优化的JS加载 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"
+        integrity="sha256-dyw4h6gMbTk1vSiOqcs/wqhyqydsuILBl78WhcD44lY=" crossorigin="anonymous" defer></script>
+
+    <!-- CSS加载回退方案 -->
+    <script>
+        // 检测CSS加载失败的回退方案
+        (function (d) {
+            var l = function (u, m) {
+                var e = d.createElement('link');
+                e.rel = 'stylesheet';
+                e.href = u;
+                e.media = m || 'all';
+                d.head.appendChild(e);
+            };
+            if ('loading' in HTMLLinkElement.prototype) {
+                // 浏览器支持link的loading属性
+                return;
+            }
+            // 回退方案
+            l('css/main.css');
+            l('css/layout.css');
+            l('css/fonts.css');
+            l('css/navigation.css');
+            l('css/social-popups.css');
+            l('css/iconfont.css');
+            l('css/visitor-info.css');
+        })(document);
     </script>
-    <!-- 主应用脚本 -->
-    <script src="js/app.js" type="module"></script>
-    <!-- <script src="js/modules/protect.js" defer></script> -->
+
+    <!-- 主应用脚本 - 使用defer属性确保DOM加载后执行 -->
+    <script src="js/app.js" type="module" defer></script>
 </head>
 
 <body>
+    <!-- 加载指示器 -->
+    <div id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
 
     <!-- 背景 -->
     <header id="panel" class="panel-cover">
@@ -62,29 +223,36 @@
                     <div class="profile-image">
                         <a class="blog-button">
                             <div class="img">
-                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    data-src="https://q1.qlogo.cn/g?b=qq&nk=674401983&s=100" alt="头像" class="avatar"
-                                    loading="lazy">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3C/svg%3E"
+                                    data-src="https://q1.qlogo.cn/g?b=qq&nk=674401983&s=100" alt="头像"
+                                    class="avatar lazy-load" fetchpriority="high">
                             </div>
                             <div class="info">
                                 <div class="info-back">
-                                    <img alt="动态图" data-src="images/kl.gif" class="avatar-gif" loading="lazy">
+                                    <img alt="动态图" data-src="images/kl.gif" class="avatar-gif lazy-load"
+                                        fetchpriority="low">
                                 </div>
                             </div>
                         </a>
                     </div>
+
                     <!-- 标题 -->
-                    <h1 class="panel-title">
+                    <h1 class="panel-title animate__animated animate__fadeIn">
                         R Aries
                     </h1>
+
                     <!-- 时钟 -->
                     <hr>
                     <canvas id="canvas"></canvas>
+
                     <!-- 描述 -->
-                    <p id="description" class="panel-description">因为你在，我不是太阳，而是化作星辰，与你遨游星空。<br>
-                        -「<strong>原创</strong>」</p>
+                    <p id="description" class="panel-description animate__animated animate__fadeIn animate__delay-1s">
+                        因为你在，我不是太阳，而是化作星辰，与你遨游星空。<br>
+                        -「<strong>原创</strong>」
+                    </p>
+
                     <!-- 访客信息模块 -->
-                    <div class="visitor-info">
+                    <div class="visitor-info animate__animated animate__fadeIn animate__delay-2s">
                         <div class="visitor-info-content">
                             <div class="visitor-info-greeting"></div>
                             <div class="visitor-info-location">
@@ -107,41 +275,40 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- 导航 -->
-                    <div class="navigation-wrapper">
-                        <div>
-                            <nav class="cover-navigation cover-navigation--primary">
-                                <ul class="navigation">
-                                    <li class="navigation__item">
-                                        <a href="https://blog.oalo.cn" target="_blank"
-                                            style="--clr:#f85d5d"><span>博客</span><i></i></a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="resume.html" target="_blank"
-                                            style="--clr:#ff1867"><span>个人简历</span><i></i></a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="https://v.douyin.com/hU1qpMX/" target="_blank"
-                                            style="--clr:#ebe417"><span>抖音</span><i></i></a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="https://blog.oalo.cn/friends.html" target="_blank"
-                                            style="--clr:#eb2feb"><span>朋友圈</span><i></i></a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="https://cloud.oalo.cn" target="_blank"
-                                            style="--clr:#28a745"><span>待开发...</span><i></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                    <div class="navigation-wrapper animate__animated animate__fadeInUp">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item">
+                                    <a href="https://blog.oalo.cn" target="_blank" rel="noopener"
+                                        style="--clr:#f85d5d"><span>博客</span><i></i></a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="resume.html" target="_blank"
+                                        style="--clr:#ff1867"><span>个人简历</span><i></i></a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="https://v.douyin.com/hU1qpMX/" target="_blank" rel="noopener"
+                                        style="--clr:#ebe417"><span>抖音</span><i></i></a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="https://blog.oalo.cn/friends.html" target="_blank" rel="noopener"
+                                        style="--clr:#eb2feb"><span>朋友圈</span><i></i></a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="https://cloud.oalo.cn" target="_blank" rel="noopener"
+                                        style="--clr:#28a745"><span>待开发...</span><i></i></a>
+                                </li>
+                            </ul>
+                        </nav>
 
                         <!-- 社交链接 -->
                         <div class="social-links">
                             <nav class="cover-navigation navigation--social">
                                 <ul class="navigation">
                                     <li class="navigation__item">
-                                        <a href="https://github.com/" title="Github" target="_blank">
+                                        <a href="https://github.com/" title="Github" target="_blank" rel="noopener">
                                             <j class="iconfont icon-github"></j>
                                             <span class="label">Github</span>
                                         </a>
@@ -173,14 +340,25 @@
         </div>
     </header>
 
-    <!-- 统计脚本 -->
+    <!-- 底部版权模块 -->
+    <footer class="footer">
+        <div class="footer-content animate__animated animate__fadeIn animate__delay-3s">
+            <span>© 2020-2024 R Aries | All Rights Reserved | Powered by <a href="https://bolo.oalo.cn/" target="_blank"
+                    rel="noopener">cR</a> | <a href="https://beian.miit.gov.cn/" target="_blank"
+                    rel="noopener">冀ICP备20018728号-1</a></span>
+        </div>
+    </footer>
+
+    <!-- 统计脚本 - 延迟加载 -->
     <script>
         window.addEventListener('load', () => {
-            var _hmt = _hmt || [];
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?90f129cde02bd8b83f21e20ff219db9a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
+            setTimeout(() => {
+                var _hmt = _hmt || [];
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?90f129cde02bd8b83f21e20ff219db9a";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            }, 3000); // 延迟3秒加载统计脚本
         });
     </script>
 </body>

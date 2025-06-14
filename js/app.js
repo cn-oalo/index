@@ -23,9 +23,42 @@ document.addEventListener('DOMContentLoaded', () => {
     initLazyLoading();
     initSocial();
 
+    // 初始化加载指示器
+    initLoadingIndicator();
+
+    // 更新底部版权年份
+    updateCopyrightYear();
+
     // 记录性能指标
     logPerformanceMetrics();
 });
+
+// 初始化加载指示器
+function initLoadingIndicator() {
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 500);
+    });
+}
+
+// 更新底部版权年份
+function updateCopyrightYear() {
+    // 修改为匹配新的HTML结构
+    const copyrightElement = document.querySelector('.footer-content span');
+    if (copyrightElement) {
+        const currentYear = new Date().getFullYear();
+        const startYear = 2020;
+        const copyrightText = copyrightElement.innerHTML;
+
+        // 替换年份部分
+        if (currentYear === startYear) {
+            copyrightElement.innerHTML = copyrightText.replace(/© \d{4}(-\d{4})?/, `© ${startYear}`);
+        } else {
+            copyrightElement.innerHTML = copyrightText.replace(/© \d{4}(-\d{4})?/, `© ${startYear}-${currentYear}`);
+        }
+    }
+}
 
 // 记录页面加载性能指标
 function logPerformanceMetrics() {
@@ -38,6 +71,11 @@ function logPerformanceMetrics() {
 
                 console.log(`页面加载时间: ${pageLoadTime}ms`);
                 console.log(`DOM处理时间: ${domReadyTime}ms`);
+
+                // 如果页面加载时间过长，可以考虑进一步优化
+                if (pageLoadTime > 3000) {
+                    console.warn('页面加载时间过长，请考虑进一步优化');
+                }
             }, 0);
         }
     });
